@@ -29,13 +29,8 @@
         container: "map", // the id of the div element
         style: `https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles/${basemapEnum}?token=${apiKey}`,
         zoom: 12, // starting zoom
-          center: [8.3098, 46.1645], // starting location [longitude, latitude]
-        attributionControl: false
-      }).addControl(
-        new maplibregl.AttributionControl({
-          compact: true // reduces the copyright attributions view
-        })
-      );
+        center: [8.3098, 46.1645], // starting location [longitude, latitude]
+      })
     </script>
   </body>
 </html>
