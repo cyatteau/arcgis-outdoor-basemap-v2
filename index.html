@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS Outdoor Basemap Style</title>
+    <link rel="icon" type="image/x-icon" href="/icons8-mountain-100.png">
+    <style>
+      html,
+      body,
+      #map {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #323232;
+      }
+
+      #basemaps-wrapper {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0);
+      }
+      #basemaps {
+        font-size: 16px;
+        padding: 4px 8px;
+      }
+
+    </style>
+    <script src=https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js></script>
+    <link href=https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css rel="stylesheet" />
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script type="module">
+      import { apiKey } from "./config.js";
+      const basemapEnum = "arcgis/outdoor";
+      const map = new maplibregl.Map({
+        container: "map", // the id of the div element
+        style: `https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles/${basemapEnum}?token=${apiKey}`,
+        zoom: 12, // starting zoom
+          center: [8.3098, 46.1645], // starting location [longitude, latitude]
+        attributionControl: false
+      }).addControl(
+        new maplibregl.AttributionControl({
+          compact: true // reduces the copyright attributions view
+        })
+      );
+ 
+
+    </script>
+
+  </body>
+</html>
